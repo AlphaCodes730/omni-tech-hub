@@ -1,0 +1,123 @@
+{
+  "system": {
+    "brand": "OMNI-TECH-HUB",
+    "owner": "Kelvin Wambugu Muregi",
+    "location": "Eldoret / Nakuru, Kenya",
+    "availability": "Available October 2026",
+    "email": "kevinmuregi64@gmail.com",
+    "phones": ["0704416441", "0731958320"],
+    "socials": {
+      "github": "https://github.com",
+      "youtube": "https://youtube.com",
+      "facebook": "https://facebook.com",
+      "instagram": "https://instagram.com"
+    }
+  },
+  "skills": [
+    {
+      "name": "Robotics & Mechatronics Engineering",
+      "level": 90,
+      "color": "#040e97",
+      "textColor": "#ffffff"
+    },
+    {
+      "name": "Microsoft Excel & Data Operations (Macros / Formulas / Modeling)",
+      "level": 95,
+      "color": "#28a745",
+      "textColor": "#ffffff"
+    },
+    {
+      "name": "Coding & Automation Logic",
+      "level": 85,
+      "color": "#09f7d7",
+      "textColor": "#050a14"
+    },
+    {
+      "name": "Cybersecurity Defense Arrays",
+      "level": 75,
+      "color": "#99d807",
+      "textColor": "#050a14"
+    },
+    {
+      "name": "3D Printing & Additive Manufacturing Design",
+      "level": 80,
+      "color": "#ce0303",
+      "textColor": "#ffffff"
+    }
+  ],
+  "services": [
+    {
+      "icon": "🤖",
+      "title": "Robotics & Mechatronics Integration",
+      "description": "Designing, integrating, and programming electro-mechanical hardware systems and intelligent machinery loops.",
+      "rate": "Custom M-Pesa rates structured by payload volume"
+    },
+    {
+      "icon": "💻",
+      "title": "Coding & Automation Logic",
+      "description": "Building Python scripts, web applications, and custom logic workflows to eliminate repetitive manual operations.",
+      "rate": "Custom M-Pesa rates per module"
+    },
+    {
+      "icon": "📊",
+      "title": "Excel Macro & Data Modeling",
+      "description": "Structuring automated VBA dashboards, financial calculators, and high-volume analytical models.",
+      "rate": "Custom M-Pesa rates per workbook"
+    },
+    {
+      "icon": "🧊",
+      "title": "3D CAD & Rapid Prototyping",
+      "description": "Developing precision mechanical enclosures and functional additive manufacturing parts from concept to print.",
+      "rate": "Custom M-Pesa rates by filament & print hours"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Automated Sensor & Actuator Array",
+      "description": "Microcontroller-driven feedback system built for real-time industrial telemetry and automated fault response.",
+      "buttonText": "View Schematic",
+      "link": "https://github.com",
+      "mediaType": "",
+      "mediaUrl": ""
+    },
+    {
+      "title": "Enterprise Macro Operations Suite",
+      "description": "Dynamic Excel VBA reporting tool automating inventory reconciliation and predictive resource allocation.",
+      "buttonText": "View Case Study",
+      "link": "https://github.com",
+      "mediaType": "",
+      "mediaUrl": ""
+    },
+    {
+      "title": "OMNI-TECH-HUB Web Matrix",
+      "description": "Responsive, terminal-inspired portfolio architecture featuring client-side credential gating and theme switching.",
+      "buttonText": "Live System",
+      "link": "#home",
+      "mediaType": "",
+      "mediaUrl": ""
+    }
+  ],
+  "certificates": [
+    {
+      "iconClass": "fas fa-certificate",
+      "title": "Mechatronics & Control Systems",
+      "description": "Core structural and applied engineering certification.",
+      "mediaType": "",
+      "mediaUrl": ""
+    },
+    {
+      "iconClass": "fas fa-shield-alt",
+      "title": "Cybersecurity Fundamentals",
+      "description": "Network defense, access control, and system hardening.",
+      "mediaType": "",
+      "mediaUrl": ""
+    },
+    {
+      "iconClass": "fas fa-table",
+      "title": "Advanced Data Analytics & VBA",
+      "description": "Automated spreadsheet engineering and macro scripting.",
+      "mediaType": "",
+      "mediaUrl": ""
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNI-TECH-HUB - Portfolio Systems</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <meta name="description" content="Professional Portfolio of Kelvin Wambugu Muregi - Engineer specializing in advanced tech domains, digital logic, and analytical systems.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="terminal-loader-box">
+            <div class="terminal-header-bar">
+                <span class="term-dot close"></span>
+                <span class="term-dot minimize"></span>
+                <span class="term-dot maximize"></span>
+                <span class="terminal-title">omni_boot_core.sh</span>
+            </div>
+            <div class="terminal-body" id="terminal-boot-log">
+                <div class="log-line">[SYSTEM] Initializing OMNI-TECH-HUB core matrix...</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="login-screen" class="login-container">
+        <div class="login-card">
+            <div class="login-icon"><i class="fas fa-terminal"></i></div>
+            <h2>OMNI-TECH-HUB</h2>
+            <p>Please log in to view my portfolio.</p>
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="password" id="password-input" placeholder="Input Password" required>
+                </div>
+                <p class="password-hint">Public Password: <strong>Alpha-codes</strong></p>
+                <button type="submit" class="btn">Access Portfolio</button>
+                <p id="error-message" class="error-msg"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="portfolio-content" class="portfolio-container hidden">
+        
+        <header class="navbar">
+            <div class="logo"><i class="fas fa-microchip"></i> OMNI-TECH-HUB</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">home</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#skills">core skills</a></li>
+                    <li><a href="#services">services</a></li>
+                    <li><a href="#projects">projects</a></li>
+                    <li><a href="#certificates">certificates</a></li>
+                    <li><a href="#contact">contact info</a></li>
+                    <li>
+                        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                    <li><button id="optout-btn" class="optout-link">OPT OUT</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="home" class="section hero-section">
+            <div class="hero-content">
+                <div class="profile-pic-container">
+                    <img src="Omni-Tech-Hub Neon Tech Badge.bg.jpg" alt="Kelvin Wambugu Muregi" class="profile-pic">
+                    <span class="availability-badge"><span class="dot"></span> Available October 2026</span>
+                </div>
+                <div class="hero-text">
+                    <h1>Welcome to <span class="brand-text">OMNI-TECH-HUB</span></h1>
+                    <p class="typing-text-wrapper">Specializing in <span id="typing-animation"></span><span class="cursor">|</span></p>
+                    <p class="hero-bio">Hello, I'm Kelvin Wambugu Muregi. I am an Engineer specializing in advanced tech domains, digital logic, and analytical systems. Explore my skills, configurations, and professional development records below (let the skills do the talking).</p>
+                    
+                    <div class="social-badges" id="social-badges-container"></div>
+                    
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn">Access My Work</a>
+                        <a href="files/my-resume.pdf" download class="btn btn-alt"><i class="fas fa-file-download"></i> Download CV</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section about-section">
+            <h2>About Me</h2>
+            <div class="about-container">
+                <p>Born and raised with a fascination for operational mechanisms, my journey anchors from deep structural training foundations running from <strong>Eldoret</strong> through core engineering certifications. I balance high-performance machinery deployment, advanced macro data modeling architectures, and structural rapid prototyping systems.</p>
+                <div class="tech-stack">
+                    <h3>Core Technical Infrastructure</h3>
+                    <div class="stack-icons">
+                        <i class="fab fa-html5" title="HTML5 Validation"></i>
+                        <i class="fab fa-css3-alt" title="CSS3 Design Layouts"></i>
+                        <i class="fab fa-js-square" title="JavaScript Dynamic Logic"></i>
+                        <i class="fab fa-python" title="Python Automation Structures"></i>
+                        <i class="fas fa-file-excel" title="Advanced Microsoft Excel Data Analytics"></i>
+                        <i class="fas fa-microchip" title="Robotics Integration"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Core Technical Skills</h2>
+            <div class="skills-bar chart-container">
+                <div class="skill-prog">
+                    <span class="skill-title">Robotics &amp; Mechatronics Engineering</span>
+                    <div class="barchart-bg"><div class="bar chart-fill" style="width: 90%; background-color: #040e97;">90%</div></div>
+                </div>
+                <div class="skill-prog">
+                    <span class="skill-title">Microsoft Excel &amp; Data Operations (Macros / Formulas / Modeling)</span>
+                    <div class="barchart-bg"><div class="bar chart-fill" style="width: 95%; background-color: #28a745;">95%</div></div>
+                </div>
+                <div class="skill-prog">
+                    <span class="skill-title">Coding &amp; Automation Logic</span>
+                    <div class="barchart-bg"><div class="bar chart-fill" style="width: 85%; background-color: #09f7d7; color: #050a14;">85%</div></div>
+                </div>
+                <div class="skill-prog">
+                    <span class="skill-title">Cybersecurity Defense Arrays</span>
+                    <div class="barchart-bg"><div class="bar chart-fill" style="width: 75%; background-color: #99d807; color: #050a14;">75%</div></div>
+                </div>
+                <div class="skill-prog">
+                    <span class="skill-title">3D Printing &amp; Additive Manufacturing Design</span>
+                    <div class="barchart-bg"><div class="bar chart-fill" style="width: 80%; background-color: #ce0303;">80%</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section services-section">
+            <h2>Services &amp; Operations</h2>
+            <div class="grid-container">
+                <div class="card service-card">
+                    <div class="icon">🤖</div>
+                    <h3>Robotics &amp; Mechatronics Integration</h3>
+                    <p>Designing, integrating, and programming electro-mechanical hardware systems and intelligent machinery loops.</p>
+                    <span class="price-tag"><i class="fas fa-wallet"></i> Custom M-Pesa rates structured by payload volume</span>
+                </div>
+                <div class="card service-card">
+                    <div class="icon">💻</div>
+                    <h3>Coding &amp; Automation Logic</h3>
+                    <p>Building Python scripts, web applications, and custom logic workflows to eliminate repetitive manual operations.</p>
+                    <span class="price-tag"><i class="fas fa-wallet"></i> Custom M-Pesa rates per module</span>
+                </div>
+                <div class="card service-card">
+                    <div class="icon">📊</div>
+                    <h3>Excel Macro &amp; Data Modeling</h3>
+                    <p>Structuring automated VBA dashboards, financial calculators, and high-volume analytical models.</p>
+                    <span class="price-tag"><i class="fas fa-wallet"></i> Custom M-Pesa rates per workbook</span>
+                </div>
+                <div class="card service-card">
+                    <div class="icon">🧊</div>
+                    <h3>3D CAD &amp; Rapid Prototyping</h3>
+                    <p>Developing precision mechanical enclosures and functional additive manufacturing parts from concept to print.</p>
+                    <span class="price-tag"><i class="fas fa-wallet"></i> Custom M-Pesa rates by filament &amp; print hours</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects-section">
+            <h2>Featured Projects</h2>
+            
+            <div class="upload-box">
+                <h3><i class="fas fa-cloud-upload-alt"></i> Upload Project PDFs &amp; Videos</h3>
+                <div class="upload-controls">
+                    <input type="text" id="proj-upload-title" placeholder="Project Title (e.g., Robotic Arm Demo)">
+                    <label for="proj-file-input" class="btn btn-alt">
+                        <i class="fas fa-file-video"></i> Choose PDF or Video
+
+                                            <input type="file" id="proj-file-input" accept=".pdf,video/*" class="hidden">
+                    <button type="button" id="proj-upload-btn" class="btn">Add to Projects</button>
+                </div>
+            </div>
+
+            <div class="grid-container" id="projects-grid">
+                <div class="card project-card">
+                    <h3>Automated Sensor &amp; Actuator Array</h3>
+                    <p>Microcontroller-driven feedback system built for real-time industrial telemetry and automated fault response.</p>
+                    <a href="https://github.com" target="_blank" class="btn btn-alt card-btn">View Schematic</a>
+                </div>
+                <div class="card project-card">
+                    <h3>Enterprise Macro Operations Suite</h3>
+                    <p>Dynamic Excel VBA reporting tool automating inventory reconciliation and predictive resource allocation.</p>
+                    <a href="https://github.com" target="_blank" class="btn btn-alt card-btn">View Case Study</a>
+                </div>
+                <div class="card project-card">
+                    <h3>OMNI-TECH-HUB Web Matrix</h3>
+                    <p>Responsive, terminal-inspired portfolio architecture featuring client-side credential gating and theme switching.</p>
+                    <a href="#home" class="btn btn-alt card-btn">Live System</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="section certificates-section">
+            <h2>Certifications &amp; Credentials</h2>
+
+            <div class="upload-box">
+                <h3><i class="fas fa-file-upload"></i> Upload Certificate PDFs &amp; Videos</h3>
+                <div class="upload-controls">
+                    <input type="text" id="cert-upload-title" placeholder="Certificate Name (e.g., Mechatronics Level 4)">
+                    <label for="cert-file-input" class="btn btn-alt" id="cert-file-label">
+                        <i class="fas fa-file-pdf"></i> Choose PDF or Video
+                    </label>
+                    <input type="file" id="cert-file-input" accept=".pdf,video/*" class="hidden">
+                    <button type="button" id="cert-upload-btn" class="btn">Add to Certificates</button>
+                </div>
+            </div>
+
+            <div class="grid-container" id="certificates-grid">
+                <div class="card cert-card">
+                    <i class="fas fa-certificate cert-icon"></i>
+                    <h3>Mechatronics &amp; Control Systems</h3>
+                    <p>Core structural and applied engineering certification.</p>
+                </div>
+                <div class="card cert-card">
+                    <i class="fas fa-shield-alt cert-icon"></i>
+                    <h3>Cybersecurity Fundamentals</h3>
+                    <p>Network defense, access control, and system hardening.</p>
+                </div>
+                <div class="card cert-card">
+                    <i class="fas fa-table cert-icon"></i>
+                    <h3>Advanced Data Analytics &amp; VBA</h3>
+                    <p>Automated spreadsheet engineering and macro scripting.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <h2>Contact &amp; Dispatch</h2>
+            <div class="contact-container">
+                <p>Ready to initiate a project or discuss engineering operations? Send a direct transmission below.</p>
+                
+                <div class="direct-details">
+                    <span><i class="fas fa-envelope"></i> <a href="mailto:kevinmuregi64@gmail.com" style="color: inherit; text-decoration: none;">kevinmuregi64@gmail.com</a></span>
+                    <span><i class="fas fa-phone"></i> <strong id="display-phone-number">0704416441 / 0731958320</strong></span>
+                </div>
+
+                <div class="phone-updater">
+                    <input type="tel" id="phone-upload-input" placeholder="Enter / Update Phone Number (e.g., +254 704 416 441)">
+                    <button type="button" id="save-phone-btn" class="btn btn-alt"><i class="fas fa-save"></i> Update Phone</button>
+                    <button type="button" id="reset-phone-btn" class="optout-link" title="Restore Default Numbers">Reset</button>
+                </div>
+                <p id="phone-status-msg" style="font-size: 0.85rem; color: var(--success-color); margin-top: -0.75rem; margin-bottom: 1rem;"></p>
+
+                <form id="contact-form">
+                    <div class="input-group">
+                        <input type="text" id="sender-name" placeholder="Your Name / Organization" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="sender-email" placeholder="Your Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="sender-message" rows="4" placeholder="Project Specifications or Inquiry..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Transmit Message</button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2026 OMNI-TECH-HUB | Kelvin Wambugu Muregi. All Systems Operational.</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+                

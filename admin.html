@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMNI-TECH-HUB — Admin Control Matrix</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        .admin-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem 1.75rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .toolbar-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .admin-panel-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .panel-header h3 {
+            color: var(--accent-primary);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-row {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.1rem;
+            margin-bottom: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            align-items: end;
+        }
+
+        .field-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .field-group label svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .field-group select {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .btn-danger {
+            background: rgba(244, 63, 94, 0.15);
+            border: 1px solid var(--danger-color);
+            color: var(--danger-color);
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .btn-danger:hover {
+            background: var(--danger-color);
+            color: #fff;
+        }
+
+        .status-banner {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--success-color);
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="admin-login-screen" class="login-container">
+        <div class="login-card">
+            <div class="login-icon"><i class="fas fa-user-shield"></i></div>
+            <h2>ADMIN MATRIX</h2>
+            <p>Authenticate to modify <code>data.json</code> parameters.</p>
+            <form id="admin-login-form">
+                <div class="input-group">
+                    <input type="password" id="admin-pass-input" placeholder="Enter Security Token" required>
+                </div>
+                <p class="password-hint">System Token: <strong>Alpha-codes</strong></p>
+                <button type="submit" class="btn">Unlock Console</button>
+                <p id="admin-error-msg" class="error-msg"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="admin-dashboard" class="hidden">
+        <header class="navbar">
+            <div class="logo"><i class="fas fa-sliders-h"></i> OMNI-TECH-HUB // ADMIN</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">view live site</a></li>
+                    <li>
+                        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                    <li><button id="admin-logout-btn" class="optout-link">LOCK</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="section">
+            <div class="admin-toolbar">
+                <div>
+                    <h2 style="text-align: left; margin-bottom: 0.25rem; font-size: 1.5rem;">Portfolio Data Controller</h2>
+                    <div id="status-banner" class="status-banner">[SYSTEM] Ready. Edit entries below, then download data.json.</div>
+                </div>
+                <div class="toolbar-actions">
+                    <label for="import-json-file" class="btn btn-alt" style="cursor: pointer;">
+                        <i class="fas fa-file-upload"></i> Import data.json
+                    </label>
+                    <input type="file" id="import-json-file" accept=".json" class="hidden">
+                    
+                    <button id="copy-json-btn" class="btn btn-alt">
+                        <i class="fas fa-copy"></i> Copy JSON
+                    </button>
+                    <button id="download-json-btn" class="btn">
+                        <i class="fas fa-download"></i> Download data.json
+                    </button>
+                </div>
+            </div>
+
+            <!-- CONTACT & PHONE NUMBER EDITOR -->
+            <div class="admin-panel-box">
+                <div class="panel-header">
+                    <h3><i class="fas fa-phone-alt"></i> Contact &amp; Phone Numbers</h3>
+                </div>
+                <div id="contact-editor-list"></div>
+            </div>
+
+            <!-- SOCIAL CHANNELS EDITOR -->
+            <div class="admin-panel-box">
+                <div class="panel-header">
+                    <h3><i class="fas fa-share-alt"></i> Social &amp; Channel Links</h3>
+                </div>
+                <div id="socials-editor-list"></div>
+            </div>
+
+            <!-- SKILLS EDITOR -->
+            <div class="admin-panel-box">
+                <div class="panel-header">
+                    <h3><i class="fas fa-chart-bar"></i> Core Technical Skills</h3>
+                    <button type="button" class="btn btn-alt" onclick="addSkill()">
+                        <i class="fas fa-plus"></i> Add Skill
+                    </button>
+                </div>
+                <div id="skills-editor-list"></div>
+            </div>
+
+            <!-- SERVICES EDITOR -->
+            <div class="admin-panel-box">
+                <div class="panel-header">
+                    <h3><i class="fas fa-cogs"></i> Services &amp; M-Pesa Rates</h3>
+                    <button type="button" class="btn btn-alt" onclick="addService()">
+                        <i class="fas fa-plus"></i> Add Service
+                    </button>
+                </div>
+                <div id="services-editor-list"></div>
+            </div>
+
+            <!-- PROJECTS EDITOR (Supports PDF & Video File Paths) -->
+            <div class="admin-panel-box">
+                <div class="panel-header">
+                    <h3><i class="fas fa-project-diagram"></i> Featured Projects (PDFs &amp; Videos)</h3>
+                    <button type="button" class="btn btn-alt" onclick="addProject()">
+                        <i class="fas fa-plus"></i> Add Project
+                    </button>
+                </div>
+                <div id="projects-editor-list"></div>
+            </div>
+
+            <!-- CERTIFICATES EDITOR (Supports PDF & Video File Paths) -->
+            <div class="admin-panel-box">
+                <div class="panel-header">
+                    <h3><i class="fas fa-award"></i> Certifications &amp; Credentials (PDFs &amp; Videos)</h3>
+                    <button type="button" class="btn btn-alt" onclick="addCertificate()">
+                        <i class="fas fa-plus"></i> Add Certificate
+                    </button>
+                </div>
+                <div id="certificates-editor-list"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let portfolioData = {
+            system: {
+                brand: "OMNI-TECH-HUB",
+                owner: "Kelvin Wambugu Muregi",
+                location: "Eldoret / Nakuru, Kenya",
+                availability: "Available October 2026",
+                email: "kevinmuregi64@gmail.com",
+                phones: ["0704416441", "0731958320"],
+                socials: {
+                    github: "https://github.com",
+                    youtube: "https://youtube.com",
+                    facebook: "https://facebook.com",
+                    instagram: "https://instagram.com"
+                }
+            },
+            skills: [
+                { name: "Robotics & Mechatronics Engineering", level: 90, color: "#040e97", textColor: "#ffffff" },
+                { name: "Microsoft Excel & Data Operations (Macros / Formulas / Modeling)", level: 95, color: "#28a745", textColor: "#ffffff" },
+                { name: "Coding & Automation Logic", level: 85, color: "#09f7d7", textColor: "#050a14" }
+            ],
+            services: [],
+            projects: [],
+            certificates: []
+        };
+
+        const field = (label, value, path, type = "text") => `
+            <div class="field-group">
+                <label>${label}</label>
+                <input type="${type}" value="${escapeHtml(value ?? '')}" data-path="${path}" class="admin-field">
+            </div>`;
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<"']/g, char => ({
+                '&': '&amp;', '<': '&lt;', '"': '&quot;', "'": '&#039;'
+            })[char]);
+        }
+
+        function setValue(path, value) {
+            const keys = path.split('.');
+            let target = portfolioData;
+            for (let i = 0; i < keys.length - 1; i++) {
+                target = target[keys[i]];
+            }
+            target[keys[keys.length - 1]] = value;
+        }
+
+        function renderAdmin() {
+            document.getElementById('contact-editor-list').innerHTML = `
+                <div class="item-row">
+                    ${field('Brand', portfolioData.system.brand, 'system.brand')}
+                    ${field('Owner', portfolioData.system.owner, 'system.owner')}
+                    ${field('Location', portfolioData.system.location, 'system.location')}
+                    ${field('Availability', portfolioData.system.availability, 'system.availability')}
+                    ${field('Email', portfolioData.system.email, 'system.email', 'email')}
+                    ${portfolioData.system.phones.map((phone, i) => field(`Phone ${i + 1}`, phone, `system.phones.${i}`, 'tel')).join('')}
+                </div>`;
+
+            document.getElementById('socials-editor-list').innerHTML = `
+                <div class="item-row">
+                    ${Object.entries(portfolioData.system.socials).map(([name, url]) =>
+                        field(name[0].toUpperCase() + name.slice(1), url, `system.socials.${name}`, 'url')
+                    ).join('')}
+                </div>`;
+
+            document.getElementById('skills-editor-list').innerHTML = portfolioData.skills.map((skill, i) => `
+                <div class="item-row">
+                    ${field('Skill Name', skill.name, `skills.${i}.name`)}
+                    ${field('Level', skill.level, `skills.${i}.level`, 'number')}
+                    ${field('Color', skill.color, `skills.${i}.color`, 'color')}
+                    ${field('Text Color', skill.textColor, `skills.${i}.textColor`, 'color')}
+                    <button type="button" class="btn-danger" onclick="removeItem('skills', ${i})">Remove</button>
+                </div>`).join('');
+
+            const renderCollection = (key, listId, fields) => {
+                document.getElementById(listId).innerHTML = portfolioData[key].map((item, i) => `
+                    <div class="item-row">
+                        ${fields.map(config => field(config.label, item[config.key], `${key}.${i}.${config.key}`, config.type || 'text')).join('')}
+                        <button type="button" class="btn-danger" onclick="removeItem('${key}', ${i})">Remove</button>
+                    </div>`).join('');
+            };
+
+            renderCollection('services', 'services-editor-list', [
+                { label: 'Service Name', key: 'name' },
+                { label: 'Description', key: 'description' },
+                { label: 'M-Pesa Rate', key: 'rate' }
+            ]);
+            renderCollection('projects', 'projects-editor-list', [
+                { label: 'Project Title', key: 'title' },
+                { label: 'Description', key: 'description' },
+                { label: 'PDF / Video Path', key: 'file' }
+            ]);
+            renderCollection('certificates', 'certificates-editor-list', [
+                { label: 'Certificate Title', key: 'title' },
+                { label: 'Issuer', key: 'issuer' },
+                { label: 'PDF / Video Path', key: 'file' }
+            ]);
+
+            document.querySelectorAll('.admin-field').forEach(input => {
+                input.oninput = () => {
+                    const value = input.type === 'number' ? Number(input.value) : input.value;
+                    setValue(input.dataset.path, value);
+                };
+            });
+        }
+
+        function addSkill() {
+            portfolioData.skills.push({ name: '', level: 50, color: '#09f7d7', textColor: '#050a14' });
+            renderAdmin();
+        }
+
+        function addService() {
+            portfolioData.services.push({ name: '', description: '', rate: '' });
+            renderAdmin();
+        }
+
+        function addProject() {
+            portfolioData.projects.push({ title: '', description: '', file: '' });
+            renderAdmin();
+        }
+
+        function addCertificate() {
+            portfolioData.certificates.push({ title: '', issuer: '', file: '' });
+            renderAdmin();
+        }
+
+        function removeItem(collection, index) {
+            portfolioData[collection].splice(index, 1);
+            renderAdmin();
+        }
+
+        function getJsonText() {
+            return JSON.stringify(portfolioData, null, 2);
+        }
+
+        document.getElementById('copy-json-btn').addEventListener('click', async () => {
+            await navigator.clipboard.writeText(getJsonText());
+            document.getElementById('status-banner').textContent = '[SYSTEM] data.json copied to clipboard.';
+        });
+
+        document.getElementById('download-json-btn').addEventListener('click', () => {
+            const blob = new Blob([getJsonText()], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'data.json';
+            link.click();
+            URL.revokeObjectURL(url);
+            document.getElementById('status-banner').textContent = '[SYSTEM] data.json downloaded.';
+        });
+
+        document.getElementById('import-json-file').addEventListener('change', event => {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    portfolioData = JSON.parse(reader.result);
+                    renderAdmin();
+                    document.getElementById('status-banner').textContent = '[SYSTEM] data.json imported successfully.';
+                } catch (error) {
+                    document.getElementById('status-banner').textContent = '[ERROR] Invalid JSON file.';
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        document.getElementById('admin-login-form').addEventListener('submit', event => {
+            event.preventEventDefault?.();
+            event.preventDefault();
+            if (document.getElementById('admin-pass-input').value === 'Alpha-codes') {
+                document.getElementById('admin-login-screen').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                renderAdmin();
+            } else {
+                document.getElementById('admin-error-msg').textContent = 'Invalid security token.';
+            }
+        });
+
+        document.getElementById('admin-logout-btn').addEventListener('click', () => {
+            document.getElementById('admin-dashboard').classList.add('hidden');
+            document.getElementById('admin-login-screen').classList.remove('hidden');
+        });
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+        });
+    </script>
+</body>
+</html>
