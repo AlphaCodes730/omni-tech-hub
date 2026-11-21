@@ -61,7 +61,7 @@ omni-tech-hub/
 ## 📬 Contact & Operations
 
 * **Engineer:** Kelvin Wambugu Muregi
-* **Location:** Eldoret / Nakuru, Kenya
+* **Location:** Nakuru, Kenya
 * **Email:** `kevinmuregi64@gmail.com`
 * **Phone:** `0704416441 / 0731958320`
 
